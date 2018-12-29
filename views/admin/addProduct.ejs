@@ -1,0 +1,66 @@
+<% include ../layouts/adminHeader %>
+<h1>ADD NEW PRODUCT</h1>
+
+<form action="/admin/products/add-product" method="POST" enctype="multipart/form-data">
+  <div class="form-group">
+    <input 
+      type="text" 
+      class="form-control" 
+      name="title" 
+      placeholder="Enter title ..." 
+      value="<%=title %>"
+    >
+  </div>
+
+  <div class="form-group">
+    <input 
+      type="text" 
+      class="form-control" 
+      name="slug" 
+      placeholder="Enter slug ..." 
+      value="<%=slug %>"
+    >
+  </div>
+
+  <div class="form-group">
+    <input 
+      type="text-area" 
+      class="form-control" 
+      name="desc" 
+      placeholder="Enter Description ..." 
+      value="<%=desc %>"
+    >
+  </div>
+
+  <div class="form-group">
+    <input 
+      type="number" 
+      class="form-control" 
+      name="price" 
+      placeholder="Enter price ..." 
+      value="<%=price %>"
+    >
+  </div>
+
+  <div class="form-group">
+    <select class="form-control" name="category">
+      <option value="-1">Select Category</option>
+      <% categories.forEach( cate => { %>
+        <option value="<%= cate.slug %>"><%= cate.title %></option>
+      <% }) %>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <input 
+      type="file" 
+      class="form-control" 
+      name="image"
+      value="<%=image %>"
+    >
+  </div>
+
+  <button type="submit" class="btn btn-success">Submit</button>
+</form>
+
+<% include ../layouts/adminFooter %>

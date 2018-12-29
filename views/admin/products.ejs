@@ -1,0 +1,22 @@
+<% include ../layouts/adminHeader %>
+  <h1><%= title %></h1>
+  <a href="/admin/products/add-product" class="btn btn-outline-success my-3" >Add new product</a>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% products.forEach( product => { %>
+          <tr>
+            <td><%= product.title %></td>
+            <td><a href="/admin/products/delete-product/<%= product.slug %>">Delete</a></td>
+          </tr>
+         <% }); %>
+    </tbody>
+  </table>
+<% include ../layouts/adminFooter %>

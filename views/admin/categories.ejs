@@ -1,0 +1,21 @@
+<% include ../layouts/adminHeader %>
+  <h1><%= title %></h1>
+  <a href="/admin/categories/add-category" class="btn btn-outline-success my-3" >Add new category</a>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+     <% categories.forEach( cate => { %>
+      <tr>
+        <td><%= cate.title %></td>
+      </tr>  
+     <% }); %>
+    </tbody>
+  </table>
+<% include ../layouts/adminFooter %>
